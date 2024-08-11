@@ -16,7 +16,7 @@ const BackgroundLayout = (props) => {
           </div>
         </div>
         <NavbarLayouts titleNavbar={titleNavbar} />
-        <div className="">{children}</div>
+        <div className="p-2">{children}</div>
       </div>
     </div>
   );
