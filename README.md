@@ -2,5 +2,5 @@
 
 ## Progress ( 1/3 )
 - [x] Install React + Tailwind
-- [] Create FE Desktop
-- [] Create FE Mobile
+- [ ] Create FE Desktop
+- [ ] Create FE Mobile
