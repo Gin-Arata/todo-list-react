@@ -11,6 +11,9 @@ export default {
         fontcolorprimary: "#F5EDED",
         bgcolorcard: "#7FA1C3",
         bgcolorcardnavbar: "#6482AD"
+      },
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
       }
     },
   },
