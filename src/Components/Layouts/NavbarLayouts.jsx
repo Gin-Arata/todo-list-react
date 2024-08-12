@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const NavbarLayouts = (props) => {
-  const { titleNavbar } = props;
+  const { titleNavbar, openModal } = props;
 
   return (
     <div className="max-w-full min-h-10 bg-bgcolorcardnavbar-500 flex items-end gap-x-1">
@@ -30,7 +30,7 @@ const NavbarLayouts = (props) => {
         </div>
       </Link>
       <div className="border-l border-slate-400 h-8 mx-1"></div>
-      <div className="cursor-pointer bg-bgcolorcardnavbar min-h-8 w-8 rounded-t-xl flex justify-center items-center hover:bg-bgcolorcard">
+      <div className="cursor-pointer bg-bgcolorcardnavbar min-h-8 w-8 rounded-t-xl flex justify-center items-center hover:bg-bgcolorcard" onClick={openModal}>
         <i className="fa fa-plus-circle text-slate-300 px-2"></i>
       </div>
     </div>
