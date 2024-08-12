@@ -22,21 +22,27 @@ const Modal = (props) => {
           className="fixed rounded-lg bg-black bg-opacity-50 z-50 flex justify-center items-center"
           style={{ width: layoutSize.width, height: layoutSize.height }}
         >
-          <div className="w-1/3 h-1/3 bg-bgcolorcardnavbar-500 rounded-md p-4">
-            {children}
-            <div className="flex justify-end gap-x-4 mt-4">
-              <button
-                className="bg-red-500 text-white px-4 py-2 rounded-md"
-                onClick={closeModal}
-              >
-                Cancel
-              </button>
-              <button
-                className="bg-green-500 text-white px-4 py-2 rounded-md"
-                onClick={closeModal}
-              >
-                Save
-              </button>
+          <div className="w-96 h-auto bg-bgcolorcardnavbar-500 rounded-md overflow-hidden">
+            <div className="max-w-full min-h-8 bg-slate-700 flex items-center">
+              <div className="flex justify-between items-center px-4">
+                <div className="flex items-center">
+                  <div className="w-4 h-4 bg-red-500 rounded-full mr-2 cursor-pointer" onClick={closeModal}></div>
+                  <div className="w-4 h-4 bg-yellow-500 rounded-full mr-2"></div>
+                  <div className="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+                </div>
+              </div>
+            </div>
+            <div className="p-4">
+              {children}
+              <div className="flex justify-end gap-x-4 mt-4"> 
+                <button
+                  type="submit"
+                  className="bg-green-500 text-white px-4 py-2 rounded-md"
+                  onClick={closeModal}
+                >
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>

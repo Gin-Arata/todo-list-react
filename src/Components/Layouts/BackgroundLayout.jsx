@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import NavbarLayouts from "./NavbarLayouts";
-import Modal from "../Fragments/Modal";
+import ModalCreateList from "./ModalCreateList";
 
 const BackgroundLayout = (props) => {
   const { children, titleNavbar } = props;
@@ -31,7 +31,7 @@ const BackgroundLayout = (props) => {
         <NavbarLayouts titleNavbar={titleNavbar} openModal={openModal} />
         <div className="p-2">{children}</div>
       </div>
-      <Modal isOpen={modal} closeModal={closeModal} backgroundLayout={backgroundLayoutRef} />
+      <ModalCreateList isOpen={modal} closeModal={closeModal} backgroundLayout={backgroundLayoutRef} />
     </div>
   );
 };
