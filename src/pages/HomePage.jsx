@@ -14,13 +14,13 @@ const HomePage = () => {
           <p className="text-md font-semibold">To Do List - Today</p>
           {todolistToday.map((todolist) => (
             <CardTodoList classname="mb-2" key={todolist.id}>
-              {todolist.todo}
+              {todolist.task}
             </CardTodoList>
           ))}
           <p className="text-md font-semibold">To Do List - Tomorrow</p>
           {todolistTomorrow.map((todolist) => (
             <CardTodoList classname="mb-2" key={todolist.id}>
-              {todolist.todo}
+              {todolist.task}
             </CardTodoList>
           ))}
         </>

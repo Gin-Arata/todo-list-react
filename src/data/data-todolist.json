@@ -2,18 +2,18 @@
     "todolist": [
         {
             "id": 1,
-            "todo": "Hello this is an example of todolist",
+            "task": "Hello this is an example of todolist for today",
             "date": "2024-08-13"
         },
         {
             "id": 2,
-            "todo": "Hello this is an example of todolist",
-            "date": "2024-08-13"
+            "task": "Hello this is an example of todolist for tomorrow",
+            "date": "2024-08-14"
         },
         {
             "id": 3,
-            "todo": "Hello this is an example of todolist",
-            "date": "2024-08-14"
+            "task": "Hello this is an example of todolist for tomorrow",
+            "date": "2024-08-13"
         }
     ]
 }

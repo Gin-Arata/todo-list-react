@@ -2,9 +2,20 @@ import { useState } from "react";
 import CardTodoList from "../Components/Fragments/CardTodoList";
 import BackgroundLayout from "../Components/Layouts/BackgroundLayout";
 import ModalDeleteList from "../Components/Layouts/ModalDeleteList";
+import { getAllTodoList } from "../services/getAllTodoList";
 
 const ToDoListPage = () => {
   const [modal, setModal] = useState(false);
+  const [todoList] = useState(getAllTodoList);
+
+  const groupedTodos = todoList.reduce((acc, todo) => {
+    if(!acc[todo.date]) {
+      acc[todo.date] = [];
+    }
+
+    acc[todo.date].push(todo);
+    return acc;
+  }, []);
 
   const openModal = () => {
     setModal(true);
@@ -18,15 +29,22 @@ const ToDoListPage = () => {
     <BackgroundLayout titleNavbar="todolist">
       {(backgroundLayoutRef) => (
         <>
-        {/* pengambilan sesuai date menggunakan if else yang memiliki date yang sama */}
-          <p className="text-md font-semibold">To Do List - Date</p>
-          <CardTodoList
-            deleteAble={true}
-            openModalDelete={openModal}
-            editAble={true}
-          >
-            Hello, this is an example of a to-do list.
-          </CardTodoList>
+          {Object.keys(groupedTodos).map((date) => (
+            <div key={date}>
+              <p className="text-md font-semibold">To Do List - {date}</p>
+              {groupedTodos[date].map((todo) => (
+                <CardTodoList
+                  classname="mb-2"
+                  key={todo.id}
+                  deleteAble={true}
+                  openModalDelete={openModal}
+                  editAble={true}
+                >
+                  {todo.task}
+                </CardTodoList>
+              ))}
+            </div>
+          ))}
 
           <ModalDeleteList
             isOpen={modal}
