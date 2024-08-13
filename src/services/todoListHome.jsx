@@ -2,8 +2,9 @@ import dataTodoList from "../data/data-todolist.json";
 
 const getTodoListToday = () => {
     const today = formatDate(new Date());
-    
-    return dataTodoList.todolist.filter((todolist) => todolist.date === today);
+    const listParsed = localStorage.getItem('todolist') ? JSON.parse(localStorage.getItem('todolist')) : [];
+
+    return listParsed.filter((todolist) => todolist.date === today);
 }
 
 const getTodoListTomorrow = () => {
@@ -11,7 +12,9 @@ const getTodoListTomorrow = () => {
     tomorrow.setDate(tomorrow.getDate() + 1);
     const tomorrowDate = formatDate(tomorrow);
 
-    return dataTodoList.todolist.filter((todolist) => todolist.date === tomorrowDate);
+    const listParsed = localStorage.getItem('todolist') ? JSON.parse(localStorage.getItem('todolist')) : [];
+
+    return listParsed.filter((todolist) => todolist.date === tomorrowDate);
 }
 
 const formatDate = (date) => {

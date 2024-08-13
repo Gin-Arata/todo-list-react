@@ -1,7 +1,13 @@
-import dataTodoList from '../data/data-todolist.json';
+import dataTodoList from "../data/data-todolist.json";
 
 const getAllTodoList = () => {
-    return dataTodoList.todolist;
-}
+  return localStorage.getItem("todolist")
+    ? JSON.parse(localStorage.getItem("todolist"))
+    : dataTodoList.todolist;
+};
 
-export { getAllTodoList };
+const getTodoListExample = () => {
+  return dataTodoList.todolist;
+};
+
+export { getAllTodoList, getTodoListExample };

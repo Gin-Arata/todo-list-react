@@ -32,10 +32,10 @@ const ToDoListPage = () => {
           {Object.keys(groupedTodos).map((date) => (
             <div key={date}>
               <p className="text-md font-semibold">To Do List - {date}</p>
-              {groupedTodos[date].map((todo) => (
+              {groupedTodos[date].map((todo, index) => (
                 <CardTodoList
                   classname="mb-2"
-                  key={todo.id}
+                  key={index}
                   deleteAble={true}
                   openModalDelete={openModal}
                   editAble={true}

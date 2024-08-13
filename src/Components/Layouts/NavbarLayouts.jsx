@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import { useState } from "react"; 
 import ModalCreateList from "./ModalCreateList";
+import { setTodoList } from "../../services/setTodoList";
 
 const NavbarLayouts = (props) => {
   const { titleNavbar, backgroundLayout } = props;
   const [modal, setModal] = useState(false);
+
+  const handleNewTodo = (newTodo) => {
+    const todoArray = Array.isArray(newTodo) ? newTodo : [newTodo];
+    setTodoList(todoArray);
+    closeModal();
+  }
 
   const openModal = () => {
     setModal(true);
@@ -45,7 +52,7 @@ const NavbarLayouts = (props) => {
         <i className="fa fa-plus-circle text-slate-300 px-2"></i>
       </div>
 
-      <ModalCreateList isOpen={modal} closeModal={closeModal} backgroundLayout={backgroundLayout} />
+      <ModalCreateList isOpen={modal} closeModal={closeModal} backgroundLayout={backgroundLayout} onSubmit={handleNewTodo} />
     </div>
   );
 };
