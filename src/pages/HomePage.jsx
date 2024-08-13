@@ -1,19 +1,28 @@
+import { useState } from "react";
 import CardTodoList from "../Components/Fragments/CardTodoList";
 import BackgroundLayout from "../Components/Layouts/BackgroundLayout";
+import { getTodoListToday, getTodoListTomorrow } from "../services/todoListHome";
 
 const HomePage = () => {
+  const [todolistToday] = useState(getTodoListToday);
+  const [todolistTomorrow] = useState(getTodoListTomorrow);
+
   return (
     <BackgroundLayout titleNavbar="home">
       {() => (
         <>
           <p className="text-md font-semibold">To Do List - Today</p>
-          <CardTodoList>
-            Hello, this is an example of a to-do list.
-          </CardTodoList>
+          {todolistToday.map((todolist) => (
+            <CardTodoList classname="mb-2" key={todolist.id}>
+              {todolist.todo}
+            </CardTodoList>
+          ))}
           <p className="text-md font-semibold">To Do List - Tomorrow</p>
-          <CardTodoList>
-            Hello, this is an example of a to-do list.
-          </CardTodoList>
+          {todolistTomorrow.map((todolist) => (
+            <CardTodoList classname="mb-2" key={todolist.id}>
+              {todolist.todo}
+            </CardTodoList>
+          ))}
         </>
       )}
     </BackgroundLayout>

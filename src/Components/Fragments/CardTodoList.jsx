@@ -1,8 +1,8 @@
 const CardTodoList = (props) => {
-  const { children, deleteAble = false, editAble = false, openModalDelete } = props;
+  const { children, deleteAble = false, editAble = false, openModalDelete, classname } = props;
   
   return (
-    <div className="w-full h-auto rounded-md bg-bgcolorcardnavbar-500 p-2 flex justify-between items-center">
+    <div className={`w-full h-auto rounded-md bg-bgcolorcardnavbar-500 p-2 flex justify-between items-center ${classname}`}>
       <p>{children}</p>
       <div className="flex gap-x-4">
         {editAble && (

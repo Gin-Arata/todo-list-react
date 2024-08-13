@@ -1,0 +1,19 @@
+{
+    "todolist": [
+        {
+            "id": 1,
+            "todo": "Hello this is an example of todolist",
+            "date": "2024-08-13"
+        },
+        {
+            "id": 2,
+            "todo": "Hello this is an example of todolist",
+            "date": "2024-08-13"
+        },
+        {
+            "id": 3,
+            "todo": "Hello this is an example of todolist",
+            "date": "2024-08-14"
+        }
+    ]
+}

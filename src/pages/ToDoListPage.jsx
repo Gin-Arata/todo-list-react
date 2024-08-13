@@ -18,6 +18,7 @@ const ToDoListPage = () => {
     <BackgroundLayout titleNavbar="todolist">
       {(backgroundLayoutRef) => (
         <>
+        {/* pengambilan sesuai date menggunakan if else yang memiliki date yang sama */}
           <p className="text-md font-semibold">To Do List - Date</p>
           <CardTodoList
             deleteAble={true}
