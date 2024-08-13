@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
+import { useState } from "react"; 
+import ModalCreateList from "./ModalCreateList";
 
 const NavbarLayouts = (props) => {
-  const { titleNavbar, openModal } = props;
+  const { titleNavbar, backgroundLayout } = props;
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(true);
+  }
+
+  const closeModal = () => {
+    setModal(false);
+  }
 
   return (
     <div className="max-w-full min-h-10 bg-bgcolorcardnavbar-500 flex items-end gap-x-1">
@@ -33,6 +44,8 @@ const NavbarLayouts = (props) => {
       <div className="cursor-pointer bg-bgcolorcardnavbar min-h-8 w-8 rounded-t-xl flex justify-center items-center hover:bg-bgcolorcard" onClick={openModal}>
         <i className="fa fa-plus-circle text-slate-300 px-2"></i>
       </div>
+
+      <ModalCreateList isOpen={modal} closeModal={closeModal} backgroundLayout={backgroundLayout} />
     </div>
   );
 };
