@@ -6,4 +6,15 @@ const setTodoList = (todolist) => {
     window.location.reload();
 }
 
-export { setTodoList };
+const getNewId = () => {
+    const existingTodoList = localStorage.getItem('todolist');
+    const todoList = existingTodoList ? JSON.parse(existingTodoList) : [];
+
+    if(todoList.length === 0) {
+        return 1;
+    } else {
+        return todoList.length + 1;
+    }
+}
+
+export { setTodoList, getNewId };

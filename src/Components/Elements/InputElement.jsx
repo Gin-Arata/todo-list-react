@@ -1,5 +1,5 @@
 const InputElement = (props) => {
-  const { name, placeholder, type, labelValue, onChange = () => {} } = props;
+  const { name, value, placeholder, type, labelValue, onChange = () => {} } = props;
 
   return (
     <div className="mb-2">
@@ -10,6 +10,7 @@ const InputElement = (props) => {
         name={name}
         placeholder={placeholder}
         onChange={onChange}
+        value={value}
       />
     </div>
   );

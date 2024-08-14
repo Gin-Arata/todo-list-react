@@ -4,11 +4,16 @@ import BackgroundLayout from "../Components/Layouts/BackgroundLayout";
 import ModalDeleteList from "../Components/Layouts/ModalDeleteList";
 import { getAllTodoList, getTodoListExample } from "../services/getAllTodoList";
 import { deleteTodoListByIndex } from "../services/deleteTodoList";
+import ModalEditList from "../Components/Layouts/ModalEditList";
+import { editTodoListByIndex } from "../services/editTodoList";
 
 const ToDoListPage = () => {
-  const [modal, setModal] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false);
   const [todoList] = useState(getAllTodoList);
   const [exampleTodoList] = useState(getTodoListExample);
+  const [formDataEdit, setFormDataEdit] = useState([]);
+  const [currentEditIndex, setCurrentEditIndex] = useState([]);
   let groupedTodos = [];
 
   if (todoList && todoList.length > 0) {
@@ -22,16 +27,30 @@ const ToDoListPage = () => {
     }, []);
   }
 
-  const openModal = () => {
-    setModal(true);
+  const openModalEdit = (data) => {
+    console.log(data);
+    setFormDataEdit(data);
+    setModalEdit(true);
+  }
+
+  const closeModalEdit = () => {
+    setModalEdit(false);
+  }
+
+  const openModalDelete = () => {
+    setModalDelete(true);
   };
 
-  const closeModal = () => {
-    setModal(false);
+  const closeModalDelete = () => {
+    setModalDelete(false);
   };
 
   const deleteTodo = (index) => {
     deleteTodoListByIndex(index);
+  }
+
+  const editTodo = (data) => {
+    editTodoListByIndex(data);
   }
 
   if (todoList && todoList.length > 0) {
@@ -48,7 +67,8 @@ const ToDoListPage = () => {
                     key={index}
                     deleteAble={true}
                     editAble={true}
-                    openModalDelete={openModal}
+                    openModalDelete={openModalDelete}
+                    openModalEdit={() => openModalEdit(todo)}
                   >
                     {todo.task}
                   </CardTodoList>
@@ -57,9 +77,18 @@ const ToDoListPage = () => {
             ))}
 
             <ModalDeleteList
-              isOpen={modal}
-              closeModal={closeModal}
+              isOpen={modalDelete}
+              closeModal={closeModalDelete}
               deleteTodo={deleteTodo}
+              backgroundLayout={backgroundLayoutRef}
+            />
+
+            <ModalEditList
+              isOpen={modalEdit}
+              closeModal={closeModalEdit}
+              formData={formDataEdit}
+              setFormData={setFormDataEdit}
+              onSubmit={editTodo}
               backgroundLayout={backgroundLayoutRef}
             />
           </>
