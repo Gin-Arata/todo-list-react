@@ -1,5 +1,3 @@
-import dataTodoList from "../data/data-todolist.json";
-
 const getTodoListToday = () => {
     const today = formatDate(new Date());
     const listParsed = localStorage.getItem('todolist') ? JSON.parse(localStorage.getItem('todolist')) : [];

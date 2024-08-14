@@ -13,7 +13,6 @@ const ToDoListPage = () => {
   const [todoList] = useState(getAllTodoList);
   const [exampleTodoList] = useState(getTodoListExample);
   const [formDataEdit, setFormDataEdit] = useState([]);
-  const [currentEditIndex, setCurrentEditIndex] = useState([]);
   let groupedTodos = [];
 
   if (todoList && todoList.length > 0) {

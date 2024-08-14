@@ -1,5 +1,5 @@
 const CardTodoList = (props) => {
-  const { children, deleteAble = false, editAble = false, openModalDelete, openModalEdit, classname, deleteTodo } = props;
+  const { children, deleteAble = false, editAble = false, openModalDelete, openModalEdit, classname } = props;
   
   return (
     <div className={`w-full h-auto rounded-md bg-bgcolorcardnavbar-500 p-2 flex justify-between items-center ${classname}`}>

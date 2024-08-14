@@ -1,6 +1,5 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import NavbarLayouts from "./NavbarLayouts";
-import ModalCreateList from "./ModalCreateList";
 
 const BackgroundLayout = (props) => {
   const { children, titleNavbar } = props;
