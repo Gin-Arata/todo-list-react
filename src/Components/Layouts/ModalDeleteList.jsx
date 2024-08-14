@@ -1,7 +1,7 @@
 import Modal from "../Fragments/Modal";
 
 const ModalDeleteList = (props) => {
-  const { isOpen, closeModal, backgroundLayout } = props;
+  const { isOpen, closeModal, backgroundLayout, deleteTodo } = props;
 
   return (
     <Modal
@@ -17,7 +17,7 @@ const ModalDeleteList = (props) => {
         <button
           type="submit"
           className="bg-red-500 text-white px-4 py-2 rounded-md"
-          onClick={closeModal}
+          onClick={deleteTodo}
         >
           Delete
         </button>

@@ -3,12 +3,12 @@ import CardTodoList from "../Components/Fragments/CardTodoList";
 import BackgroundLayout from "../Components/Layouts/BackgroundLayout";
 import ModalDeleteList from "../Components/Layouts/ModalDeleteList";
 import { getAllTodoList, getTodoListExample } from "../services/getAllTodoList";
+import { deleteTodoListByIndex } from "../services/deleteTodoList";
 
 const ToDoListPage = () => {
   const [modal, setModal] = useState(false);
   const [todoList] = useState(getAllTodoList);
   const [exampleTodoList] = useState(getTodoListExample);
-
   let groupedTodos = [];
 
   if (todoList && todoList.length > 0) {
@@ -30,6 +30,10 @@ const ToDoListPage = () => {
     setModal(false);
   };
 
+  const deleteTodo = (index) => {
+    deleteTodoListByIndex(index);
+  }
+
   if (todoList && todoList.length > 0) {
     return (
       <BackgroundLayout titleNavbar="todolist">
@@ -43,8 +47,8 @@ const ToDoListPage = () => {
                     classname="mb-2"
                     key={index}
                     deleteAble={true}
-                    openModalDelete={openModal}
                     editAble={true}
+                    openModalDelete={openModal}
                   >
                     {todo.task}
                   </CardTodoList>
@@ -55,6 +59,7 @@ const ToDoListPage = () => {
             <ModalDeleteList
               isOpen={modal}
               closeModal={closeModal}
+              deleteTodo={deleteTodo}
               backgroundLayout={backgroundLayoutRef}
             />
           </>
