@@ -3,7 +3,7 @@ import dataTodoList from "../data/data-todolist.json";
 const getAllTodoList = () => {
   return localStorage.getItem("todolist")
     ? JSON.parse(localStorage.getItem("todolist"))
-    : dataTodoList.todolist;
+    : null;
 };
 
 const getTodoListExample = () => {
