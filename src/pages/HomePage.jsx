@@ -65,33 +65,63 @@ const HomePage = () => {
       );
     }
   } else {
-    // ubah if nanti menjadi allTodoList
     if (allTodoList && allTodoList.length > 0) {
       return (
         <BackgroundLayoutMobile>
-          <div className="">
-            <p className="text-md font-semibold">To Do List - Today</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <CardTodoListMobile>Testing</CardTodoListMobile>
-            </div>
-          </div>
-          <div className="">
-            <p className="text-md font-semibold">To Do List - Tomorrow</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-              <CardTodoListMobile>Testing</CardTodoListMobile>
-            </div>
-          </div>
+          {() => (
+            <>
+              {todolistToday && todolistToday.length > 0 ? (
+                <div className="">
+                  <p className="text-md font-semibold">To Do List - Today</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {todolistToday.map((todo) => (
+                      <CardTodoListMobile key={todo.id}>
+                        {todo.task}
+                      </CardTodoListMobile>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="">
+                  <p className="text-md font-semibold">To Do List - Today</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <CardTodoListMobile>
+                      Nothing task must to do today
+                    </CardTodoListMobile>
+                  </div>
+                </div>
+              )}
+              {todolistTomorrow && todolistTomorrow.length > 0 && (
+                <div className="">
+                  <p className="text-md font-semibold">To Do List - Tomorrow</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {todolistTomorrow.map((todo) => (
+                      <CardTodoListMobile key={todo.id}>
+                        {todo.task}
+                      </CardTodoListMobile>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </>
+          )}
         </BackgroundLayoutMobile>
       );
     } else {
       return (
         <BackgroundLayoutMobile titleNavbar="home">
-          <p className="text-md font-semibold">To Do List - Today</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-            {exampleTodoList.map((todo) => (
-              <CardTodoListMobile key={todo.id}>{todo.task}</CardTodoListMobile>
-            ))}
-          </div>
+          {() => (
+            <>
+              <p className="text-md font-semibold">To Do List - Today</p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {exampleTodoList.map((todo) => (
+                  <CardTodoListMobile key={todo.id}>
+                    {todo.task}
+                  </CardTodoListMobile>
+                ))}
+              </div>
+            </>
+          )}
         </BackgroundLayoutMobile>
       );
     }

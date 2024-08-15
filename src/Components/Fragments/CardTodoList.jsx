@@ -32,14 +32,14 @@ const CardTodoList = (props) => {
 };
 
 const CardTodoListMobile = (props) => {
-  const { children, buttonAble = { deleteAble: false, updateAble: false } } = props;
+  const { children, buttonAble = { deleteAble: false, updateAble: false }, openModal = {edit: null, update: null} } = props;
 
   return (
     <div className="bg-bgcolorcardnavbar-500 h-32 overflow-hidden rounded overflow-y-auto scrollbar-thin scrollbar-thumb-slate-700 scrollbar-track-slate-400">
       {(buttonAble.deleteAble == true || buttonAble.updateAble == true) && (
         <div className="flex items-center justify-end gap-x-5 bg-slate-400 w-full h-6 sticky top-0 pe-4">
-          {buttonAble.updateAble && (<i className="cursor-pointer text-gray-700 fa fa-edit"></i>)}
-          {buttonAble.deleteAble && (<i className="cursor-pointer text-red-600 fa fa-trash"></i>)}
+          {buttonAble.updateAble && (<i className="cursor-pointer text-gray-700 fa fa-edit" onClick={openModal.edit}></i>)}
+          {buttonAble.deleteAble && (<i className="cursor-pointer text-red-600 fa fa-trash" onClick={openModal.update}></i>)}
         </div>
       )}
       <p className="m-1">{children}</p>

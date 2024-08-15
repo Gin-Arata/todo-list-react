@@ -32,7 +32,6 @@ const ModalCreateList = (props) => {
       <h1 className="font-semibold mb-1">Create New To Do List</h1>
       <hr className="opacity-35 my-2" />
       <form action="" onSubmit={handleSubmit}>
-        <InputElement type="hidden" name="id" />
         <InputElement
           type="text"
           name="task"

@@ -121,21 +121,65 @@ const ToDoListPage = () => {
     }
   } else {
     if (todoList && todoList.length > 0) {
+      return (
+        <BackgroundLayoutMobile titleNavbar="todolist">
+          {(backgroundLayoutRef) => (
+            <>
+              {Object.keys(groupedTodos).map((date) => (
+                <div key={date}>
+                  <p className="text-md font-semibold">To Do List - {date}</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {groupedTodos[date].map((todo) => (
+                      <CardTodoListMobile
+                        buttonAble={{ deleteAble: true, updateAble: true }}
+                        openModal={{ edit: () => openModalEdit(todo), update: openModalDelete }}
+                        key={todo.id}
+                      >
+                        {todo.task}
+                      </CardTodoListMobile>
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <ModalDeleteList
+                isOpen={modalDelete}
+                closeModal={closeModalDelete}
+                deleteTodo={deleteTodo}
+                backgroundLayout={backgroundLayoutRef}
+              />
+
+              <ModalEditList
+                isOpen={modalEdit}
+                closeModal={closeModalEdit}
+                formData={formDataEdit}
+                setFormData={setFormDataEdit}
+                onSubmit={editTodo}
+                backgroundLayout={backgroundLayoutRef}
+              />
+            </>
+          )}
+        </BackgroundLayoutMobile>
+      );
     } else {
       return (
         <BackgroundLayoutMobile titleNavbar="todolist">
-          {exampleTodoList.map((todo) => (
+          {() => (
             <>
-              <p className="text-md font-semibold">To Do List - {todo.date}</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <CardTodoListMobile
-                  buttonAble = {{ deleteAble: true, updateAble: true }}
-                  key={todo.id}>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt cumque hic voluptatum quibusdam praesentium eaque ipsa, vitae veritatis commodi earum temporibus, asperiores beatae est enim assumenda, sint quasi quo magni!
-                </CardTodoListMobile>
-              </div>
+              {exampleTodoList.map((todo) => (
+                <>
+                  <p className="text-md font-semibold">
+                    To Do List - {todo.date}
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    <CardTodoListMobile key={todo.id}>
+                      {todo.task}
+                    </CardTodoListMobile>
+                  </div>
+                </>
+              ))}
             </>
-          ))}
+          )}
         </BackgroundLayoutMobile>
       );
     }
