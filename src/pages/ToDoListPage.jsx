@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CardTodoList from "../Components/Fragments/CardTodoList";
+import { CardTodoList } from "../Components/Fragments/CardTodoList";
 import BackgroundLayout from "../Components/Layouts/BackgroundLayout";
 import ModalDeleteList from "../Components/Layouts/ModalDeleteList";
 import { getAllTodoList, getTodoListExample } from "../services/getAllTodoList";
