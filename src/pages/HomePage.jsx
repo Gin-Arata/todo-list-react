@@ -67,7 +67,7 @@ const HomePage = () => {
   } else {
     if (allTodoList && allTodoList.length > 0) {
       return (
-        <BackgroundLayoutMobile>
+        <BackgroundLayoutMobile titleNavbar="home">
           {() => (
             <>
               {todolistToday && todolistToday.length > 0 ? (
