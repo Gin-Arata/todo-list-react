@@ -85,7 +85,7 @@ const HomePage = () => {
       );
     } else {
       return (
-        <BackgroundLayoutMobile>
+        <BackgroundLayoutMobile titleNavbar="home">
           <p className="text-md font-semibold">To Do List - Today</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {exampleTodoList.map((todo) => (
